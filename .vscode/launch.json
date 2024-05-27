@@ -1,14 +1,27 @@
 {
   "configurations": [
-    {
-      "type": "gdb",
-      "request": "attach",
-      "name": "Attach to gdbserver : vm",
-      "executable": "${workspaceRoot}/vm/build/kernel.o",
-      "target": "localhost:1234",
-      "remote": true,
-      "cwd": "${workspaceRoot}",
-      "valuesFormatting": "parseText"
-    }
+      {
+          "name": "[P1] Debug a Test",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/vm/build/kernel.o",
+          "miDebuggerServerAddress": "localhost:1234",
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "symbolLoadInfo": {
+              "loadAll": true,
+              "exceptionList": ""
+          }
+      }
   ]
 }
